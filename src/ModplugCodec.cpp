@@ -23,6 +23,7 @@
 extern "C" {
 #include <libmodplug/modplug.h>
 #include "xbmc/xbmc_audiodec_dll.h"
+#include "xbmc/AEChannelData.h"
 
 ADDON::CHelper_libXBMC_addon *XBMC           = NULL;
 
@@ -114,7 +115,8 @@ void ADDON_Announce(const char *flag, const char *sender, const char *message, c
 }
 
 void* Init(const char* strFile, unsigned int filecache, int* channels,
-           int* samplerate, int* bitspersample, int64_t* totaltime)
+           int* samplerate, int* bitspersample, int64_t* totaltime,
+           int* bitrate, AEDataFormat* format, const AEChannel** channelinfo)
 {
   void* file = XBMC->OpenFile(strFile,0);
   if (!file)
@@ -136,6 +138,9 @@ void* Init(const char* strFile, unsigned int filecache, int* channels,
   *samplerate = 44100;
   *bitspersample = 16;
   *totaltime = (int64_t)(ModPlug_GetLength(module));
+  *format = AE_FMT_S16NE;
+  *channelinfo = NULL;
+  *bitrate = ModPlug_NumChannels(module);
 
   return module;
 }
@@ -162,5 +167,16 @@ bool DeInit(void* context)
   ModPlug_Unload((ModPlugFile*)context);
 
   return true;
+}
+
+bool ReadTag(const char* strFile, char* title, char* artist,
+             int* length)
+{
+  return false;
+}
+
+int TrackCount(const char* strFile)
+{
+  return 1;
 }
 }
