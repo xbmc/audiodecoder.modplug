@@ -17,3 +17,5 @@ set(MODPLUG_SOURCES src/ModplugCodec.cpp)
 set(DEPLIBS ${MODPLUG_LIBRARIES})
 
 build_addon(audiodecoder.modplug MODPLUG DEPLIBS)
+
+include(CPack)
