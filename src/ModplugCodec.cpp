@@ -18,6 +18,10 @@
  *
  */
 
+//! \file ModplugCodec.cpp
+//! \author Arne Morten Kvarving
+//! \brief Modplug audio decoder for Kodi
+
 #include "kodi/libXBMC_addon.h"
 
 extern "C" {
@@ -27,9 +31,8 @@ extern "C" {
 
 ADDON::CHelper_libXBMC_addon *XBMC           = NULL;
 
-//-- Create -------------------------------------------------------------------
-// Called on load. Addon should fully initalize or return error status
-//-----------------------------------------------------------------------------
+//! \brief Create addon
+//! \details Called on load. Addon should fully initalize or return error status
 ADDON_STATUS ADDON_Create(void* hdl, void* props)
 {
   if (!XBMC)
@@ -44,76 +47,59 @@ ADDON_STATUS ADDON_Create(void* hdl, void* props)
   return ADDON_STATUS_OK;
 }
 
-//-- Stop ---------------------------------------------------------------------
-// This dll must cease all runtime activities
-// !!! Add-on master function !!!
-//-----------------------------------------------------------------------------
+//! \brief Stop addon
+//! \details This dll must cease all runtime activities
 void ADDON_Stop()
 {
 }
 
-//-- Destroy ------------------------------------------------------------------
-// Do everything before unload of this add-on
-// !!! Add-on master function !!!
-//-----------------------------------------------------------------------------
+//! \brief Destroy addon
+//! \details Do everything before unload of this add-on
 void ADDON_Destroy()
 {
   XBMC=NULL;
 }
 
-//-- HasSettings --------------------------------------------------------------
-// Returns true if this add-on use settings
-// !!! Add-on master function !!!
-//-----------------------------------------------------------------------------
+//! \brief Declare whether or not the addon has settings 
+//! \return true if this add-on use settings
 bool ADDON_HasSettings()
 {
   return false;
 }
 
-//-- GetStatus ---------------------------------------------------------------
-// Returns the current Status of this visualisation
-// !!! Add-on master function !!!
-//-----------------------------------------------------------------------------
+//! \brief Get status of addon
+//! \details Returns the current Status of this audio decoder
 ADDON_STATUS ADDON_GetStatus()
 {
   return ADDON_STATUS_OK;
 }
 
-//-- GetSettings --------------------------------------------------------------
-// Return the settings for XBMC to display
-// !!! Add-on master function !!!
-//-----------------------------------------------------------------------------
+//! \brief Returns runtime-generated settings
+//! \details Return the settings for XBMC to display
 unsigned int ADDON_GetSettings(ADDON_StructSetting ***sSet)
 {
   return 0;
 }
 
-//-- FreeSettings --------------------------------------------------------------
-// Free the settings struct passed from XBMC
-// !!! Add-on master function !!!
-//-----------------------------------------------------------------------------
-
+//! \brief Free runtime-generated settings
+//! \details Free the settings struct passed from XBMC
 void ADDON_FreeSettings()
 {
 }
 
-//-- SetSetting ---------------------------------------------------------------
-// Set a specific Setting value (called from XBMC)
-// !!! Add-on master function !!!
-//-----------------------------------------------------------------------------
+//! \brief Set the value of a given setting
+//! \details Set a specific Setting value (called from XBMC)
 ADDON_STATUS ADDON_SetSetting(const char *strSetting, const void* value)
 {
   return ADDON_STATUS_OK;
 }
 
-//-- Announce -----------------------------------------------------------------
-// Receive announcements from XBMC
-// !!! Add-on master function !!!
-//-----------------------------------------------------------------------------
+//! \brief Receive announcements from XBMC
 void ADDON_Announce(const char *flag, const char *sender, const char *message, const void *data)
 {
 }
 
+//! \brief Initialize an audio decoder for a given file
 void* Init(const char* strFile, unsigned int filecache, int* channels,
            int* samplerate, int* bitspersample, int64_t* totaltime,
            int* bitrate, AEDataFormat* format, const AEChannel** channelinfo)
@@ -145,6 +131,7 @@ void* Init(const char* strFile, unsigned int filecache, int* channels,
   return module;
 }
 
+//! \brief Return decoded data
 int ReadPCM(void* context, uint8_t* pBuffer, int size, int *actualsize)
 {
   if (!context)
@@ -156,12 +143,14 @@ int ReadPCM(void* context, uint8_t* pBuffer, int size, int *actualsize)
   return 1;
 }
 
+//! \brief Seek to a given time
 int64_t Seek(void* context, int64_t time)
 {
   ModPlug_Seek((ModPlugFile*)context, (int)time);
   return time;
 }
 
+//! \brief Deinitialize decoder
 bool DeInit(void* context)
 {
   ModPlug_Unload((ModPlugFile*)context);
@@ -169,12 +158,14 @@ bool DeInit(void* context)
   return true;
 }
 
+//! \brief Returns any tag values for file
 bool ReadTag(const char* strFile, char* title, char* artist,
              int* length)
 {
   return false;
 }
 
+//! \brief Returns track count for a given file
 int TrackCount(const char* strFile)
 {
   return 1;
