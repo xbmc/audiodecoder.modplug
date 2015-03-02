@@ -99,17 +99,32 @@ void ADDON_Announce(const char *flag, const char *sender, const char *message, c
 {
 }
 
+#define SET_IF(ptr, value) \
+{ \
+  if ((ptr)) \
+   *(ptr) = (value); \
+}
+
 //! \brief Initialize an audio decoder for a given file
 void* Init(const char* strFile, unsigned int filecache, int* channels,
            int* samplerate, int* bitspersample, int64_t* totaltime,
            int* bitrate, AEDataFormat* format, const AEChannel** channelinfo)
 {
+  if (!strFile)
+    return NULL;
+
   void* file = XBMC->OpenFile(strFile,0);
   if (!file)
     return NULL;
 
   int len = XBMC->GetFileLength(file);
   char *data = new char[len];
+  if (!data)
+  {
+    XBMC->CloseFile(file);
+    return NULL;
+  }
+
   XBMC->ReadFile(file, data, len);
   XBMC->CloseFile(file);
 
@@ -120,13 +135,16 @@ void* Init(const char* strFile, unsigned int filecache, int* channels,
   if (!module)
     return NULL;
 
-  *channels = 2;
-  *samplerate = 44100;
-  *bitspersample = 16;
-  *totaltime = (int64_t)(ModPlug_GetLength(module));
-  *format = AE_FMT_S16NE;
-  *channelinfo = NULL;
-  *bitrate = ModPlug_NumChannels(module);
+  SET_IF(channels, 2)
+  SET_IF(samplerate, 44100)
+  SET_IF(bitspersample, 16)
+  SET_IF(totaltime,(int64_t)(ModPlug_GetLength(module)));
+  SET_IF(format, AE_FMT_S16NE)
+  static enum AEChannel map[3] = {
+    AE_CH_FL, AE_CH_FR, AE_CH_NULL
+  };
+  SET_IF(channelinfo, map)
+  SET_IF(bitrate, ModPlug_NumChannels(module));
 
   return module;
 }
@@ -146,6 +164,9 @@ int ReadPCM(void* context, uint8_t* pBuffer, int size, int *actualsize)
 //! \brief Seek to a given time
 int64_t Seek(void* context, int64_t time)
 {
+  if (!context)
+    return -1;
+
   ModPlug_Seek((ModPlugFile*)context, (int)time);
   return time;
 }
@@ -153,6 +174,9 @@ int64_t Seek(void* context, int64_t time)
 //! \brief Deinitialize decoder
 bool DeInit(void* context)
 {
+  if (!context)
+    return true;
+
   ModPlug_Unload((ModPlugFile*)context);
 
   return true;
