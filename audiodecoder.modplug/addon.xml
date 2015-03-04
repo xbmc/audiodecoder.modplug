@@ -11,7 +11,11 @@
     point="kodi.audiodecoder"
     name="mod"
     extension=".669|.abc|.amf|.ams|.dbm|.dmf|.dsm|.far|.it|.j2b|.mdl|.med|.mod|.itgz|.mt2|.mtm|.okt|.pat|.psm|.ptm|.s3m|.stm|.ult|.umx|.xm|.mdgz|.s3gz|.xmgz"
-    library_linux="audiodecoder.modplug.so"/>
+    library_linux="audiodecoder.modplug.so"
+    library_osx="audiodecoder.modplug.dylib"
+    library_freebsd="audiodecoder.modplug.so"
+    library_windx="audiodecoder.modplug.dll"
+    library_android="libaudiodecoder.modplug.so"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Modplug Audio Decoder</summary>
     <description lang="en">Modplug Audio Decoder</description>
