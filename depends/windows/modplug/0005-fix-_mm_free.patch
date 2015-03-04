@@ -1,0 +1,11 @@
+diff -Naur libmodplug-0.8.7.orig/src/load_abc.cpp libmodplug-0.8.7/src/load_abc.cpp
+--- libmodplug-0.8.7.orig/src/load_abc.cpp	Sun Apr 26 22:06:48 2009
++++ libmodplug-0.8.7/src/load_abc.cpp	Fri Mar  6 20:22:44 2015
+@@ -400,6 +400,7 @@
+ #define DupStr(h,buf,sz)		strdup(buf)
+ #define _mm_calloc(h,n,sz)		calloc(n,sz)
+ #define _mm_recalloc(h,buf,sz,elsz)	realloc(buf,sz)
++#undef _mm_free
+ #define _mm_free(h,p)								free(p)
+ 
+ typedef struct {

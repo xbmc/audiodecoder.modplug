@@ -1,0 +1,11 @@
+diff -Naur libmodplug-0.8.7.orig/src/snd_fx.cpp libmodplug-0.8.7/src/snd_fx.cpp
+--- libmodplug-0.8.7.orig/src/snd_fx.cpp	Wed Apr 22 13:06:42 2009
++++ libmodplug-0.8.7/src/snd_fx.cpp	Fri Mar  6 20:24:05 2015
+@@ -7,6 +7,7 @@
+ #include "stdafx.h"
+ #include "sndfile.h"
+ #include "tables.h"
++#include <stdlib.h>
+ 
+ #ifdef MSC_VER
+ #pragma warning(disable:4244)

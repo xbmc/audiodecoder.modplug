@@ -1,8 +1,8 @@
 project(modplug)
 
 cmake_minimum_required(VERSION 2.8)
-add_definitions(-DHAVE_INTTYPES_H -DHAVE_STDINT_H -DHAVE_SETENV
-                -DWIN32 -D_WINDOWS)
+
+add_definitions(-D_CRT_SECURE_NO_WARNINGS -DMSC_VER=_MSC_VER)
 
 set(MODPLUG_SOURCES src/fastmix.cpp
                     src/load_669.cpp
