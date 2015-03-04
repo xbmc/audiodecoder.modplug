@@ -7,14 +7,16 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR})
 enable_language(CXX)
 
 find_package(kodi REQUIRED)
+find_package(kodiplatform REQUIRED)
 find_package(Modplug REQUIRED)
 
-include_directories(${KODI_INCLUDE_DIR}
+include_directories(${kodiplatform_INCLUDE_DIRS}
+                    ${KODI_INCLUDE_DIR}
                     ${MODPLUG_INCLUDE_DIRS})
 
 set(MODPLUG_SOURCES src/ModplugCodec.cpp)
 
-set(DEPLIBS ${MODPLUG_LIBRARIES})
+set(DEPLIBS ${kodiplatform_LIBRARIES} ${MODPLUG_LIBRARIES})
 
 build_addon(audiodecoder.modplug MODPLUG DEPLIBS)
 
