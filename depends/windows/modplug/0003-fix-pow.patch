@@ -1,0 +1,43 @@
+diff -Naur libmodplug-0.8.7.orig/src/sndfile.cpp libmodplug-0.8.7/src/sndfile.cpp
+--- libmodplug-0.8.7.orig/src/sndfile.cpp	Wed Apr 22 07:47:42 2009
++++ libmodplug-0.8.7/src/sndfile.cpp	Fri Mar  6 20:20:25 2015
+@@ -1634,9 +1634,6 @@
+ DWORD CSoundFile::TransposeToFrequency(int transp, int ftune)
+ //-----------------------------------------------------------
+ {
+-	//---GCCFIX:  Removed assembly.
+-	return (DWORD)(8363*pow(2, (transp*128+ftune)/(1536)));
+-
+ #ifdef MSC_VER
+ 	const float _fbase = 8363;
+ 	const float _factor = 1.0f/(12.0f*128.0f);
+@@ -1666,6 +1663,9 @@
+ 	if (derr <= 5) freq -= derr;
+ 	if (derr >= 995) freq += 1000-derr;
+ 	return freq;
++#else
++  	//---GCCFIX:  Removed assembly.
++	return (DWORD)(8363*pow(2, (transp*128+ftune)/(1536)));
+ #endif
+ }
+ 
+@@ -1674,9 +1674,6 @@
+ int CSoundFile::FrequencyToTranspose(DWORD freq)
+ //----------------------------------------------
+ {
+-	//---GCCFIX:  Removed assembly.
+-	return int(1536*(log(freq/8363)/log(2)));
+-
+ #ifdef MSC_VER
+ 	const float _f1_8363 = 1.0f / 8363.0f;
+ 	const float _factor = 128 * 12;
+@@ -1692,6 +1689,9 @@
+ 	fistp result
+ 	}
+ 	return result;
++#else
++	//---GCCFIX:  Removed assembly.
++	return int(1536*(log(freq/8363)/log(2)));
+ #endif
+ }
+ 

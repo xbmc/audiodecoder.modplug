@@ -1,0 +1,47 @@
+diff -Naur libmodplug-0.8.7.orig/src/libmodplug/stdafx.h libmodplug-0.8.7/src/libmodplug/stdafx.h
+--- libmodplug-0.8.7.orig/src/libmodplug/stdafx.h	Mon Apr 20 07:09:16 2009
++++ libmodplug-0.8.7/src/libmodplug/stdafx.h	Fri Mar  6 20:08:58 2015
+@@ -47,6 +47,7 @@
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <string.h>
++#include <unistd.h>
+ #ifdef HAVE_MALLOC_H
+ #include <malloc.h>
+ #endif
+diff -Naur libmodplug-0.8.7.orig/src/load_abc.cpp libmodplug-0.8.7/src/load_abc.cpp
+--- libmodplug-0.8.7.orig/src/load_abc.cpp	Sun Apr 26 22:06:48 2009
++++ libmodplug-0.8.7/src/load_abc.cpp	Fri Mar  6 20:09:40 2015
+@@ -29,7 +29,7 @@
+ #include <string.h>
+ #include <math.h>
+ #include <ctype.h>
+-#include <unistd.h> // for sleep
++#include "stdafx.h"
+ 
+ #ifdef NEWMIKMOD
+ #include "mikmod.h"
+diff -Naur libmodplug-0.8.7.orig/src/load_mid.cpp libmodplug-0.8.7/src/load_mid.cpp
+--- libmodplug-0.8.7.orig/src/load_mid.cpp	Tue Apr  7 05:22:56 2009
++++ libmodplug-0.8.7/src/load_mid.cpp	Fri Mar  6 20:09:33 2015
+@@ -29,7 +29,7 @@
+ #include <string.h>
+ #include <math.h>
+ #include <ctype.h>
+-#include <unistd.h> // for sleep
++#include "stdafx.h"
+ 
+ #ifdef NEWMIKMOD
+ #include "mikmod.h"
+diff -Naur libmodplug-0.8.7.orig/src/load_pat.cpp libmodplug-0.8.7/src/load_pat.cpp
+--- libmodplug-0.8.7.orig/src/load_pat.cpp	Tue Apr 21 14:07:14 2009
++++ libmodplug-0.8.7/src/load_pat.cpp	Fri Mar  6 20:09:53 2015
+@@ -33,7 +33,7 @@
+ #include <string.h>
+ #include <math.h>
+ #include <ctype.h>
+-#include <unistd.h> // for sleep
++#include "stdafx.h"
+ 
+ #ifdef NEWMIKMOD
+ #include "mikmod.h"
