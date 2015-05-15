@@ -8,15 +8,18 @@ enable_language(CXX)
 
 find_package(kodi REQUIRED)
 find_package(kodiplatform REQUIRED)
+find_package(platform REQUIRED)
 find_package(Modplug REQUIRED)
 
 include_directories(${kodiplatform_INCLUDE_DIRS}
+                    ${platform_INCLUDE_DIRS}
                     ${KODI_INCLUDE_DIR}
                     ${MODPLUG_INCLUDE_DIRS})
 
 set(MODPLUG_SOURCES src/ModplugCodec.cpp)
 
-set(DEPLIBS ${kodiplatform_LIBRARIES} ${MODPLUG_LIBRARIES})
+set(DEPLIBS ${platform_LIBRARIES}
+            ${MODPLUG_LIBRARIES})
 
 build_addon(audiodecoder.modplug MODPLUG DEPLIBS)
 
