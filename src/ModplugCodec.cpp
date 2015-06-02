@@ -22,12 +22,12 @@
 //! \author Arne Morten Kvarving
 //! \brief Modplug audio decoder for Kodi
 
-#include "kodi/libXBMC_addon.h"
+#include "libXBMC_addon.h"
 
 extern "C" {
 #include <libmodplug/modplug.h>
-#include "kodi/kodi_audiodec_dll.h"
-#include "kodi/AEChannelData.h"
+#include "kodi_audiodec_dll.h"
+#include "AEChannelData.h"
 
 ADDON::CHelper_libXBMC_addon *XBMC           = NULL;
 
