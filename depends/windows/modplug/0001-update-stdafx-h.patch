@@ -1,0 +1,39 @@
+--- a/src/sndfile.cpp
++++ b/src/sndfile.cpp
+@@ -6,8 +6,8 @@
+ */
+ 
+ #include <math.h> //for GCCFIX
+-#include <libmodplug/stdafx.h>
+-#include <libmodplug/sndfile.h>
++#include "libmodplug/stdafx.h"
++#include "libmodplug/sndfile.h"
+ 
+ #define MMCMP_SUPPORT
+ 
+--- a/src/sndmix.cpp
++++ b/src/sndmix.cpp
+@@ -4,8 +4,8 @@
+  * Authors: Olivier Lapicque <olivierl@jps.net>
+ */
+ 
+-#include <libmodplug/stdafx.h>
+-#include <libmodplug/sndfile.h>
++#include "libmodplug/stdafx.h"
++#include "libmodplug/sndfile.h"
+ #include "tables.h"
+ 
+ #ifdef MODPLUG_TRACKER
+--- a/src/tables.h
++++ b/src/tables.h
+@@ -4,8 +4,8 @@
+  * Authors: Olivier Lapicque <olivierl@jps.net>
+  */
+ 
+-#include <libmodplug/stdafx.h>
+-#include <libmodplug/sndfile.h>
++#include "libmodplug/stdafx.h"
++#include "libmodplug/sndfile.h"
+ 
+ #ifndef MODPLUG_FASTSOUNDLIB
+ //#pragma data_seg(".tables")
