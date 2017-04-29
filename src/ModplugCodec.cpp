@@ -60,13 +60,6 @@ void ADDON_Destroy()
   XBMC=NULL;
 }
 
-//! \brief Declare whether or not the addon has settings 
-//! \return true if this add-on use settings
-bool ADDON_HasSettings()
-{
-  return false;
-}
-
 //! \brief Get status of addon
 //! \details Returns the current Status of this audio decoder
 ADDON_STATUS ADDON_GetStatus()
@@ -74,29 +67,11 @@ ADDON_STATUS ADDON_GetStatus()
   return ADDON_STATUS_OK;
 }
 
-//! \brief Returns runtime-generated settings
-//! \details Return the settings for XBMC to display
-unsigned int ADDON_GetSettings(ADDON_StructSetting ***sSet)
-{
-  return 0;
-}
-
-//! \brief Free runtime-generated settings
-//! \details Free the settings struct passed from XBMC
-void ADDON_FreeSettings()
-{
-}
-
 //! \brief Set the value of a given setting
 //! \details Set a specific Setting value (called from XBMC)
 ADDON_STATUS ADDON_SetSetting(const char *strSetting, const void* value)
 {
   return ADDON_STATUS_OK;
-}
-
-//! \brief Receive announcements from XBMC
-void ADDON_Announce(const char *flag, const char *sender, const char *message, const void *data)
-{
 }
 
 #define SET_IF(ptr, value) \
