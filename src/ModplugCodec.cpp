@@ -47,12 +47,6 @@ ADDON_STATUS ADDON_Create(void* hdl, void* props)
   return ADDON_STATUS_OK;
 }
 
-//! \brief Stop addon
-//! \details This dll must cease all runtime activities
-void ADDON_Stop()
-{
-}
-
 //! \brief Destroy addon
 //! \details Do everything before unload of this add-on
 void ADDON_Destroy()
