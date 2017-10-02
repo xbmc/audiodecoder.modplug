@@ -13,7 +13,7 @@ find_package(Modplug REQUIRED)
 
 include_directories(${kodiplatform_INCLUDE_DIRS}
                     ${p8-platform_INCLUDE_DIRS}
-                    ${KODI_INCLUDE_DIR}
+                    ${KODI_INCLUDE_DIR}/..
                     ${MODPLUG_INCLUDE_DIRS})
 
 set(MODPLUG_SOURCES src/ModplugCodec.cpp)

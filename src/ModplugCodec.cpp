@@ -22,145 +22,100 @@
 //! \author Arne Morten Kvarving
 //! \brief Modplug audio decoder for Kodi
 
-#include "libXBMC_addon.h"
+#include <kodi/addon-instance/AudioDecoder.h>
+#include <kodi/Filesystem.h>
 
 extern "C" {
 #include <libmodplug/modplug.h>
-#include "kodi_audiodec_dll.h"
-#include "AEChannelData.h"
+}
 
-ADDON::CHelper_libXBMC_addon *XBMC           = NULL;
-
-//! \brief Create addon
-//! \details Called on load. Addon should fully initalize or return error status
-ADDON_STATUS ADDON_Create(void* hdl, void* props)
+class CModplugCodec : public kodi::addon::CInstanceAudioDecoder,
+                      public kodi::addon::CAddonBase
 {
-  if (!XBMC)
-    XBMC = new ADDON::CHelper_libXBMC_addon;
+public:
+  CModplugCodec(KODI_HANDLE instance) :
+    CInstanceAudioDecoder(instance) {}
 
-  if (!XBMC->RegisterMe(hdl))
+  virtual ~CModplugCodec()
   {
-    delete XBMC, XBMC=NULL;
-    return ADDON_STATUS_PERMANENT_FAILURE;
+    if (module)
+      ModPlug_Unload(module);
   }
 
-  return ADDON_STATUS_OK;
-}
-
-//! \brief Destroy addon
-//! \details Do everything before unload of this add-on
-void ADDON_Destroy()
-{
-  XBMC=NULL;
-}
-
-//! \brief Get status of addon
-//! \details Returns the current Status of this audio decoder
-ADDON_STATUS ADDON_GetStatus()
-{
-  return ADDON_STATUS_OK;
-}
-
-//! \brief Set the value of a given setting
-//! \details Set a specific Setting value (called from XBMC)
-ADDON_STATUS ADDON_SetSetting(const char *strSetting, const void* value)
-{
-  return ADDON_STATUS_OK;
-}
-
-#define SET_IF(ptr, value) \
-{ \
-  if ((ptr)) \
-   *(ptr) = (value); \
-}
-
-//! \brief Initialize an audio decoder for a given file
-void* Init(const char* strFile, unsigned int filecache, int* channels,
-           int* samplerate, int* bitspersample, int64_t* totaltime,
-           int* bitrate, AEDataFormat* format, const AEChannel** channelinfo)
-{
-  if (!strFile)
-    return NULL;
-
-  void* file = XBMC->OpenFile(strFile,0);
-  if (!file)
-    return NULL;
-
-  int len = XBMC->GetFileLength(file);
-  char *data = new char[len];
-  if (!data)
+  virtual bool Init(const std::string& filename, unsigned int filecache,
+                    int& channels, int& samplerate,
+                    int& bitspersample, int64_t& totaltime,
+                    int& bitrate, AEDataFormat& format,
+                    std::vector<AEChannel>& channellist) override
   {
-    XBMC->CloseFile(file);
-    return NULL;
-  }
+    kodi::vfs::CFile file;
+    if (!file.OpenFile(filename,0))
+      return false;
 
-  XBMC->ReadFile(file, data, len);
-  XBMC->CloseFile(file);
+    int len = file.GetLength();
+    char *data = new char[len];
+    if (!data)
+      return false;
 
-  // Now load the module
-  ModPlugFile* module = ModPlug_Load(data, len);
-  delete[] data;
+    file.Read(data, len);
+    file.Close();
 
-  if (!module)
-    return NULL;
+    // Now load the module
+    module = ModPlug_Load(data, len);
+    delete[] data;
 
-  SET_IF(channels, 2)
-  SET_IF(samplerate, 44100)
-  SET_IF(bitspersample, 16)
-  SET_IF(totaltime,(int64_t)(ModPlug_GetLength(module)));
-  SET_IF(format, AE_FMT_S16NE)
-  static enum AEChannel map[3] = {
-    AE_CH_FL, AE_CH_FR, AE_CH_NULL
-  };
-  SET_IF(channelinfo, map)
-  SET_IF(bitrate, ModPlug_NumChannels(module));
+    if (!module)
+      return false;
 
-  return module;
-}
+    channels = 2;
+    samplerate = 44100;
+    bitspersample = 16;
+    totaltime = (int64_t)ModPlug_GetLength(module);
+    format = AE_FMT_S16NE;
+    channellist = { AE_CH_FL, AE_CH_FR };
+    bitrate, ModPlug_NumChannels(module);
 
-//! \brief Return decoded data
-int ReadPCM(void* context, uint8_t* pBuffer, int size, int *actualsize)
-{
-  if (!context)
-    return 1;
-
-  if ((*actualsize = ModPlug_Read((ModPlugFile*)context, pBuffer, size)) == size)
-    return 0;
-  
-  return 1;
-}
-
-//! \brief Seek to a given time
-int64_t Seek(void* context, int64_t time)
-{
-  if (!context)
-    return -1;
-
-  ModPlug_Seek((ModPlugFile*)context, (int)time);
-  return time;
-}
-
-//! \brief Deinitialize decoder
-bool DeInit(void* context)
-{
-  if (!context)
     return true;
+  }
 
-  ModPlug_Unload((ModPlugFile*)context);
+  virtual int ReadPCM(uint8_t* buffer, int size, int& actualsize) override
+  {
+    if (!module)
+      return 1;
 
-  return true;
-}
+    if ((actualsize = ModPlug_Read(module, buffer, size)) == size)
+      return 0;
+  
+    return 1;
+  }
 
-//! \brief Returns any tag values for file
-bool ReadTag(const char* strFile, char* title, char* artist,
-             int* length)
+  virtual int64_t Seek(int64_t time) override
+  {
+    if (!module)
+      return -1;
+
+    ModPlug_Seek(module, (int)time);
+    return time;
+  }
+
+private:
+  ModPlugFile* module = nullptr;
+};
+
+
+class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
 {
-  return false;
-}
+public:
+  CMyAddon() { }
+  virtual ADDON_STATUS CreateInstance(int instanceType, std::string instanceID, KODI_HANDLE instance, KODI_HANDLE& addonInstance) override
+  {
+    addonInstance = new CModplugCodec(instance);
+    return ADDON_STATUS_OK;
+  }
+  virtual ~CMyAddon()
+  {
+  }
+};
 
-//! \brief Returns track count for a given file
-int TrackCount(const char* strFile)
-{
-  return 1;
-}
-}
+
+ADDONCREATOR(CMyAddon);
