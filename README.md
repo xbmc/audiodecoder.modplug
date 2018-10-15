@@ -2,8 +2,8 @@
 
 This is a [Kodi](http://kodi.tv) audio decoder addon for tracker module files.
 
-[![Build Status](https://travis-ci.org/notspiff/audiodecoder.modplug.svg?branch=master)](https://travis-ci.org/notspiff/audiodecoder.modplug)
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/notspiff/audiodecoder.modplug?svg=true)](https://ci.appveyor.com/project/notspiff/audiodecoder-modplug)
+[![Build Status](https://travis-ci.org/xbmc/audiodecoder.modplug.svg?branch=master)](https://travis-ci.org/xbmc/audiodecoder.modplug)
+[![Build Status](https://ci.appveyor.com/api/projects/status/github/xbmc/audiodecoder.modplug?svg=true)](https://ci.appveyor.com/project/xbmc/audiodecoder-modplug)
 
 ## Build instructions
 
@@ -17,7 +17,7 @@ The following instructions assume you will have built Kodi already in the `kodi-
 suggested by the README.
 
 1. `git clone https://github.com/xbmc/xbmc.git`
-2. `git clone https://github.com/notspiff/audiodecoder.modplug.git`
+2. `git clone https://github.com/xbmc/audiodecoder.modplug.git`
 3. `cd audiodecoder.modplug && mkdir build && cd build`
 4. `cmake -DADDONS_TO_BUILD=audiodecoder.modplug -DADDON_SRC_PREFIX=../.. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../../xbmc/kodi-build/addons -DPACKAGE_ZIP=1 ../../xbmc/cmake/addons`
 5. `make`
