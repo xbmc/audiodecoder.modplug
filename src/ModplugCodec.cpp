@@ -29,8 +29,7 @@ extern "C" {
 #include <libmodplug/modplug.h>
 }
 
-class CModplugCodec : public kodi::addon::CInstanceAudioDecoder,
-                      public kodi::addon::CAddonBase
+class ATTRIBUTE_HIDDEN CModplugCodec : public kodi::addon::CInstanceAudioDecoder
 {
 public:
   CModplugCodec(KODI_HANDLE instance) :
