@@ -29,24 +29,23 @@ extern "C" {
 #include <libmodplug/modplug.h>
 }
 
-class CModplugCodec : public kodi::addon::CInstanceAudioDecoder,
-                      public kodi::addon::CAddonBase
+class ATTRIBUTE_HIDDEN CModplugCodec : public kodi::addon::CInstanceAudioDecoder
 {
 public:
   CModplugCodec(KODI_HANDLE instance) :
     CInstanceAudioDecoder(instance) {}
 
-  virtual ~CModplugCodec()
+  ~CModplugCodec() override
   {
-    if (module)
-      ModPlug_Unload(module);
+    if (m_module)
+      ModPlug_Unload(m_module);
   }
 
-  virtual bool Init(const std::string& filename, unsigned int filecache,
-                    int& channels, int& samplerate,
-                    int& bitspersample, int64_t& totaltime,
-                    int& bitrate, AEDataFormat& format,
-                    std::vector<AEChannel>& channellist) override
+  bool Init(const std::string& filename, unsigned int filecache,
+            int& channels, int& samplerate,
+            int& bitspersample, int64_t& totaltime,
+            int& bitrate, AEDataFormat& format,
+            std::vector<AEChannel>& channellist) override
   {
     kodi::vfs::CFile file;
     if (!file.OpenFile(filename,0))
@@ -60,61 +59,59 @@ public:
     file.Read(data, len);
     file.Close();
 
-    // Now load the module
-    module = ModPlug_Load(data, len);
+    // Now load the m_module
+    m_module = ModPlug_Load(data, len);
     delete[] data;
 
-    if (!module)
+    if (!m_module)
       return false;
 
     channels = 2;
     samplerate = 44100;
     bitspersample = 16;
-    totaltime = (int64_t)ModPlug_GetLength(module);
+    totaltime = (int64_t)ModPlug_GetLength(m_module);
     format = AE_FMT_S16NE;
     channellist = { AE_CH_FL, AE_CH_FR };
-    bitrate, ModPlug_NumChannels(module);
+    bitrate, ModPlug_NumChannels(m_module);
 
     return true;
   }
 
-  virtual int ReadPCM(uint8_t* buffer, int size, int& actualsize) override
+  int ReadPCM(uint8_t* buffer, int size, int& actualsize) override
   {
-    if (!module)
+    if (!m_module)
       return 1;
 
-    if ((actualsize = ModPlug_Read(module, buffer, size)) == size)
+    if ((actualsize = ModPlug_Read(m_module, buffer, size)) == size)
       return 0;
   
     return 1;
   }
 
-  virtual int64_t Seek(int64_t time) override
+  int64_t Seek(int64_t time) override
   {
-    if (!module)
+    if (!m_module)
       return -1;
 
-    ModPlug_Seek(module, (int)time);
+    ModPlug_Seek(m_module, (int)time);
     return time;
   }
 
 private:
-  ModPlugFile* module = nullptr;
+  ModPlugFile* m_module = nullptr;
 };
 
 
 class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
 {
 public:
-  CMyAddon() { }
-  virtual ADDON_STATUS CreateInstance(int instanceType, std::string instanceID, KODI_HANDLE instance, KODI_HANDLE& addonInstance) override
+  CMyAddon() = default;
+  ADDON_STATUS CreateInstance(int instanceType, std::string instanceID, KODI_HANDLE instance, KODI_HANDLE& addonInstance) override
   {
     addonInstance = new CModplugCodec(instance);
     return ADDON_STATUS_OK;
   }
-  virtual ~CMyAddon()
-  {
-  }
+  ~CMyAddon() override = default;
 };
 
 

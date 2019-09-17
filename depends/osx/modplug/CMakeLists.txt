@@ -1,7 +1,19 @@
 cmake_minimum_required(VERSION 3.5)
 project(modplug)
 
-add_definitions(-D_CRT_SECURE_NO_WARNINGS -DMSC_VER=_MSC_VER -DMODPLUG_STATIC)
+include (CheckFunctionExists)
+
+check_function_exists("setenv" HAVE_SETENV)
+check_function_exists("sinf" HAVE_SINF)
+
+if(HAVE_SETENV)
+  add_definitions(-DHAVE_SETENV)
+endif(HAVE_SETENV)
+if(HAVE_SINF)
+  add_definitions(-DHAVE_SINF)
+endif(HAVE_SINF)
+
+add_definitions(-DMODPLUG_STATIC)
 
 set(MODPLUG_SOURCES src/fastmix.cpp
                     src/load_669.cpp

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(modplug)
 
-add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_WARNINGS -DMSC_VER=_MSC_VER)
+add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_WARNINGS -DMSC_VER=_MSC_VER -DMODPLUG_STATIC)
 
 set(MODPLUG_SOURCES src/fastmix.cpp
                     src/load_669.cpp
