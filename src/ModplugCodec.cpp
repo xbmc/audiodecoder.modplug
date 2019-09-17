@@ -37,8 +37,8 @@ public:
 
   ~CModplugCodec() override
   {
-    if (module)
-      ModPlug_Unload(module);
+    if (m_module)
+      ModPlug_Unload(m_module);
   }
 
   bool Init(const std::string& filename, unsigned int filecache,
@@ -59,30 +59,30 @@ public:
     file.Read(data, len);
     file.Close();
 
-    // Now load the module
-    module = ModPlug_Load(data, len);
+    // Now load the m_module
+    m_module = ModPlug_Load(data, len);
     delete[] data;
 
-    if (!module)
+    if (!m_module)
       return false;
 
     channels = 2;
     samplerate = 44100;
     bitspersample = 16;
-    totaltime = (int64_t)ModPlug_GetLength(module);
+    totaltime = (int64_t)ModPlug_GetLength(m_module);
     format = AE_FMT_S16NE;
     channellist = { AE_CH_FL, AE_CH_FR };
-    bitrate, ModPlug_NumChannels(module);
+    bitrate, ModPlug_NumChannels(m_module);
 
     return true;
   }
 
   int ReadPCM(uint8_t* buffer, int size, int& actualsize) override
   {
-    if (!module)
+    if (!m_module)
       return 1;
 
-    if ((actualsize = ModPlug_Read(module, buffer, size)) == size)
+    if ((actualsize = ModPlug_Read(m_module, buffer, size)) == size)
       return 0;
   
     return 1;
@@ -90,15 +90,15 @@ public:
 
   int64_t Seek(int64_t time) override
   {
-    if (!module)
+    if (!m_module)
       return -1;
 
-    ModPlug_Seek(module, (int)time);
+    ModPlug_Seek(m_module, (int)time);
     return time;
   }
 
 private:
-  ModPlugFile* module = nullptr;
+  ModPlugFile* m_module = nullptr;
 };
 
 
