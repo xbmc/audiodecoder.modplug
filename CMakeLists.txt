@@ -13,6 +13,10 @@ set(MODPLUG_SOURCES src/ModplugCodec.cpp)
 
 set(DEPLIBS ${MODPLUG_LIBRARIES})
 
+if(WIN32)
+  add_definitions(-DMODPLUG_STATIC)
+endif()
+
 build_addon(audiodecoder.modplug MODPLUG DEPLIBS)
 
 include(CPack)
