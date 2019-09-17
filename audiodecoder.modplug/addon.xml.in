@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="audiodecoder.modplug"
-  version="2.1.0"
+  version="2.1.1"
   name="Modplug Audio Decoder"
   provider-name="spiff">
   <requires>@ADDON_DEPENDS@</requires>
@@ -12,7 +12,9 @@
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Modplug Audio Decoder</summary>
-    <description lang="en">Modplug Audio Decoder</description>
+    <description lang="en">Plays MOD files and few other formats.
+
+It is recommended to use "OpenMPT Audio Decoder" addon instead of this one.</description>
     <platform>@PLATFORM@</platform>
   </extension>
 </addon>
