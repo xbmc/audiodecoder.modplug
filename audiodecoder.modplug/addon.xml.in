@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="audiodecoder.modplug"
-  version="2.1.1"
+  version="2.1.2"
   name="Modplug Audio Decoder"
   provider-name="spiff">
   <requires>@ADDON_DEPENDS@</requires>
@@ -16,5 +16,10 @@
 
 It is recommended to use "OpenMPT Audio Decoder" addon instead of this one.</description>
     <platform>@PLATFORM@</platform>
+    <license>GPL-2.0</license>
+    <source>https://github.com/xbmc/audiodecoder.modplug</source>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
   </extension>
 </addon>
