@@ -3,7 +3,8 @@
 This is a [Kodi](http://kodi.tv) audio decoder addon for tracker module files.
 
 [![Build Status](https://travis-ci.org/xbmc/audiodecoder.modplug.svg?branch=master)](https://travis-ci.org/xbmc/audiodecoder.modplug)
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/xbmc/audiodecoder.modplug?svg=true)](https://ci.appveyor.com/project/xbmc/audiodecoder-modplug)
+[![Build Status](https://dev.azure.com/teamkodi/binary-addons/_apis/build/status/xbmc.audiodecoder.modplug?branchName=Leia)](https://dev.azure.com/teamkodi/binary-addons/_build/latest?definitionId=7&branchName=Leia)
+<!--- [![Build Status](https://ci.appveyor.com/api/projects/status/github/xbmc/audiodecoder.modplug?svg=true)](https://ci.appveyor.com/project/xbmc/audiodecoder-modplug) -->
 
 ## Build instructions
 
