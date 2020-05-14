@@ -16,7 +16,7 @@
 
 It is recommended to use "OpenMPT Audio Decoder" addon instead of this one.</description>
     <platform>@PLATFORM@</platform>
-    <license>GPL-2.0</license>
+    <license>GPL-2.0-or-later</license>
     <source>https://github.com/xbmc/audiodecoder.modplug</source>
     <assets>
       <icon>icon.png</icon>
