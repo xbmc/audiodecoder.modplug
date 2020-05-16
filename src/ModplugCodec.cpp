@@ -19,8 +19,8 @@ extern "C" {
 class ATTRIBUTE_HIDDEN CModplugCodec : public kodi::addon::CInstanceAudioDecoder
 {
 public:
-  CModplugCodec(KODI_HANDLE instance) :
-    CInstanceAudioDecoder(instance) {}
+  CModplugCodec(KODI_HANDLE instance, const std::string& version) :
+    CInstanceAudioDecoder(instance, version) {}
 
   ~CModplugCodec() override
   {
@@ -93,9 +93,9 @@ class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
 {
 public:
   CMyAddon() = default;
-  ADDON_STATUS CreateInstance(int instanceType, std::string instanceID, KODI_HANDLE instance, KODI_HANDLE& addonInstance) override
+  ADDON_STATUS CreateInstance(int instanceType, const std::string& instanceID, KODI_HANDLE instance, const std::string& version, KODI_HANDLE& addonInstance) override
   {
-    addonInstance = new CModplugCodec(instance);
+    addonInstance = new CModplugCodec(instance, version);
     return ADDON_STATUS_OK;
   }
   ~CMyAddon() override = default;
