@@ -10,6 +10,7 @@ include_directories(${KODI_INCLUDE_DIR}/..
                     ${MODPLUG_INCLUDE_DIRS})
 
 set(MODPLUG_SOURCES src/ModplugCodec.cpp)
+set(MODPLUG_HEADERS src/ModplugCodec.h)
 
 set(DEPLIBS ${MODPLUG_LIBRARIES})
 
