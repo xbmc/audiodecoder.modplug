@@ -2,6 +2,8 @@
 
 This is a [Kodi](https://kodi.tv) audio decoder addon for tracker module files.
 
+> **NOTE:** It is recommended to use ["OpenMPT Audio Decoder"](https://github.com/xbmc/audiodecoder.openmpt) addon instead of this one. However, but still usable here.
+
 [![License: GPL-2.0-or-later](https://img.shields.io/badge/License-GPL%20v2+-blue.svg)](LICENSE.md)
 [![Build Status](https://dev.azure.com/teamkodi/binary-addons/_apis/build/status/xbmc.audiodecoder.modplug?branchName=Matrix)](https://dev.azure.com/teamkodi/binary-addons/_build/latest?definitionId=7&branchName=Matrix)
 [![Build Status](https://jenkins.kodi.tv/view/Addons/job/xbmc/job/audiodecoder.modplug/job/Matrix/badge/icon)](https://jenkins.kodi.tv/blue/organizations/jenkins/xbmc%2Faudiodecoder.modplug/branches/)
