@@ -13,8 +13,8 @@
   <extension point="xbmc.addon.metadata">
     <summary lang="de_DE">Modplug Audio Decoder</summary>
     <summary lang="en_GB">Modplug Audio Decoder</summary>
-    <description lang="de_DE">Spielt MOD-Dateien und einige andere Formate ab.[CR][CR]Es wird empfohlen, anstelle dieses Addons "OpenMPT Audio Decoder" zu verwenden.</description>
-    <description lang="en_GB">Plays MOD files and few other formats.[CR][CR]It is recommended to use "OpenMPT Audio Decoder" addon instead of this one.</description>
+    <description lang="de_DE">Spielt MOD-Dateien und einige andere Formate ab.[CR][CR]Es wird empfohlen, anstelle dieses Addons &quot;OpenMPT Audio Decoder&quot; zu verwenden.</description>
+    <description lang="en_GB">Plays MOD files and few other formats.[CR][CR]It is recommended to use &quot;OpenMPT Audio Decoder&quot; addon instead of this one.</description>
     <lifecyclestate type="deprecated" lang="de_DE">Ersetzt durch das Addon audiodecoder.openmpt! Aber hier auch noch verwendbar.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="en_GB">Replaced by audiodecoder.openmpt addon! However, but still usable here.</lifecyclestate>
     <platform>@PLATFORM@</platform>
