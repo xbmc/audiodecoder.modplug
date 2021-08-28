@@ -27,3 +27,4 @@ msgstr "Spielt MOD-Dateien und einige andere Formate ab.[CR][CR]Es wird empfohle
 msgctxt "Addon Lifecyclestate"
 msgid "Replaced by audiodecoder.openmpt addon! However, but still usable here."
 msgstr "Ersetzt durch das Addon audiodecoder.openmpt! Aber hier auch noch verwendbar."
+

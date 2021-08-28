@@ -27,3 +27,4 @@ msgstr ""
 msgctxt "Addon Lifecyclestate"
 msgid "Replaced by audiodecoder.openmpt addon! However, but still usable here."
 msgstr ""
+
