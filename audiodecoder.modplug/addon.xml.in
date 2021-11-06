@@ -8,8 +8,94 @@
   <extension
     point="kodi.audiodecoder"
     name="mod"
-    extension=".669|.abc|.amf|.ams|.dbm|.dmf|.dsm|.far|.it|.j2b|.mdl|.med|.mod|.itgz|.mt2|.mtm|.okt|.pat|.psm|.ptm|.s3m|.stm|.ult|.umx|.xm|.mdgz|.s3gz|.xmgz"
-    library_@PLATFORM@="@LIBRARY_FILENAME@"/>
+    library_@PLATFORM@="@LIBRARY_FILENAME@">
+    <support>
+      <extension name=".669">
+        <description>30100</description>
+      </extension>
+      <extension name=".abc">
+        <description>30101</description>
+      </extension>
+      <extension name=".amf">
+        <description>30102</description>
+      </extension>
+      <extension name=".ams">
+        <description>30103</description>
+      </extension>
+      <extension name=".dbm">
+        <description>30104</description>
+      </extension>
+      <extension name=".dmf">
+        <description>30105</description>
+      </extension>
+      <extension name=".dsm">
+        <description>30106</description>
+      </extension>
+      <extension name=".far">
+        <description>30107</description>
+      </extension>
+      <extension name=".it">
+        <description>30108</description>
+      </extension>
+      <extension name=".j2b">
+        <description>30109</description>
+      </extension>
+      <extension name=".mdl">
+        <description>30110</description>
+      </extension>
+      <extension name=".med">
+        <description>30111</description>
+      </extension>
+      <extension name=".mod">
+        <description>30112</description>
+      </extension>
+      <extension name=".itgz">
+        <description>30113</description>
+      </extension>
+      <extension name=".mt2">
+        <description>30114</description>
+      </extension>
+      <extension name=".mtm">
+        <description>30115</description>
+      </extension>
+      <extension name=".okt">
+        <description>30116</description>
+      </extension>
+      <extension name=".pat">
+        <description>30117</description>
+      </extension>
+      <extension name=".psm">
+        <description>30118</description>
+      </extension>
+      <extension name=".ptm">
+        <description>30119</description>
+      </extension>
+      <extension name=".s3m">
+        <description>30120</description>
+      </extension>
+      <extension name=".stm">
+        <description>30121</description>
+      </extension>
+      <extension name=".ult">
+        <description>30122</description>
+      </extension>
+      <extension name=".umx">
+        <description>30123</description>
+      </extension>
+      <extension name=".xm">
+        <description>30124</description>
+      </extension>
+      <extension name=".mdgz">
+        <description>30125</description>
+      </extension>
+      <extension name=".s3gz">
+        <description>30126</description>
+      </extension>
+      <extension name=".xmgz">
+        <description>30127</description>
+      </extension>
+    </support>
+  </extension>
   <extension point="xbmc.addon.metadata">
     <platform>@PLATFORM@</platform>
     <license>GPL-2.0-or-later</license>
