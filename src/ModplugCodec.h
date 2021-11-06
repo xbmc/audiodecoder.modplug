@@ -18,7 +18,7 @@ extern "C"
 #include <libmodplug/modplug.h>
 }
 
-class ATTRIBUTE_HIDDEN CModplugCodec : public kodi::addon::CInstanceAudioDecoder
+class ATTR_DLL_LOCAL CModplugCodec : public kodi::addon::CInstanceAudioDecoder
 {
 public:
   CModplugCodec(KODI_HANDLE instance, const std::string& version);
@@ -33,7 +33,7 @@ public:
             int& bitrate,
             AudioEngineDataFormat& format,
             std::vector<AudioEngineChannel>& channellist) override;
-  int ReadPCM(uint8_t* buffer, int size, int& actualsize) override;
+  int ReadPCM(uint8_t* buffer, size_t size, size_t& actualsize) override;
   int64_t Seek(int64_t time) override;
 
 private:

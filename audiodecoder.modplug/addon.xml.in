@@ -1,15 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="audiodecoder.modplug"
-  version="20.0.0"
+  version="20.1.0"
   name="Modplug Audio Decoder"
   provider-name="spiff">
   <requires>@ADDON_DEPENDS@</requires>
   <extension
     point="kodi.audiodecoder"
     name="mod"
-    extension=".669|.abc|.amf|.ams|.dbm|.dmf|.dsm|.far|.it|.j2b|.mdl|.med|.mod|.itgz|.mt2|.mtm|.okt|.pat|.psm|.ptm|.s3m|.stm|.ult|.umx|.xm|.mdgz|.s3gz|.xmgz"
-    library_@PLATFORM@="@LIBRARY_FILENAME@"/>
+    library_@PLATFORM@="@LIBRARY_FILENAME@">
+    <support>
+      <extension name=".669">
+        <description>30100</description>
+      </extension>
+      <extension name=".abc">
+        <description>30101</description>
+      </extension>
+      <extension name=".amf">
+        <description>30102</description>
+      </extension>
+      <extension name=".ams">
+        <description>30103</description>
+      </extension>
+      <extension name=".dbm">
+        <description>30104</description>
+      </extension>
+      <extension name=".dmf">
+        <description>30105</description>
+      </extension>
+      <extension name=".dsm">
+        <description>30106</description>
+      </extension>
+      <extension name=".far">
+        <description>30107</description>
+      </extension>
+      <extension name=".it">
+        <description>30108</description>
+      </extension>
+      <extension name=".j2b">
+        <description>30109</description>
+      </extension>
+      <extension name=".mdl">
+        <description>30110</description>
+      </extension>
+      <extension name=".med">
+        <description>30111</description>
+      </extension>
+      <extension name=".mod">
+        <description>30112</description>
+      </extension>
+      <extension name=".itgz">
+        <description>30113</description>
+      </extension>
+      <extension name=".mt2">
+        <description>30114</description>
+      </extension>
+      <extension name=".mtm">
+        <description>30115</description>
+      </extension>
+      <extension name=".okt">
+        <description>30116</description>
+      </extension>
+      <extension name=".pat">
+        <description>30117</description>
+      </extension>
+      <extension name=".psm">
+        <description>30118</description>
+      </extension>
+      <extension name=".ptm">
+        <description>30119</description>
+      </extension>
+      <extension name=".s3m">
+        <description>30120</description>
+      </extension>
+      <extension name=".stm">
+        <description>30121</description>
+      </extension>
+      <extension name=".ult">
+        <description>30122</description>
+      </extension>
+      <extension name=".umx">
+        <description>30123</description>
+      </extension>
+      <extension name=".xm">
+        <description>30124</description>
+      </extension>
+      <extension name=".mdgz">
+        <description>30125</description>
+      </extension>
+      <extension name=".s3gz">
+        <description>30126</description>
+      </extension>
+      <extension name=".xmgz">
+        <description>30127</description>
+      </extension>
+    </support>
+  </extension>
   <extension point="xbmc.addon.metadata">
     <platform>@PLATFORM@</platform>
     <license>GPL-2.0-or-later</license>
@@ -21,13 +107,19 @@
     <summary lang="de_DE">Modplug Audio Decoder</summary>
     <summary lang="en_GB">Modplug Audio Decoder</summary>
     <summary lang="ko_KR">Modplug 오디오 디코더</summary>
+    <summary lang="ru_RU">Аудиодекодер Modplug</summary>
+    <summary lang="zh_CN">Modplug 音频解码器</summary>
     <description lang="da_DK">Spiller MOD-filer og få andre formater.[CR][CR]Det anbefales at bruge &quot;OpenMPT lydafkoder&quot; addon i stedet for denne.</description>
     <description lang="de_DE">Spielt MOD-Dateien und einige andere Formate ab.[CR][CR]Es wird empfohlen, anstelle dieses Addons &quot;OpenMPT Audio Decoder&quot; zu verwenden.</description>
     <description lang="en_GB">Plays MOD files and few other formats.[CR][CR]It is recommended to use &quot;OpenMPT Audio Decoder&quot; addon instead of this one.</description>
     <description lang="ko_KR">MOD 파일 및 기타 몇 가지 형식을 재생합니다.[CR][CR]이 애드온 대신 &quot;OpenMPT Audio Decoder&quot; 애드온을 사용하는 것이 좋습니다.</description>
+    <description lang="ru_RU">Воспроизводит файлы MOD и некоторые другие форматы.[CR][CR]Вместо него рекомендуется использовать дополнение &quot;OpenMPT Audio Decoder&quot;.</description>
+    <description lang="zh_CN">播放 MOD 文件和少量其他格式。[CR][CR]建议使用“OpenMPT音频解码器”插件，而不是此插件。</description>
     <lifecyclestate type="deprecated" lang="da_DK">Erstattet af audiodecoder.openmpt addon! Dette addon er dog stadig brugbart.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="de_DE">Ersetzt durch das Addon audiodecoder.openmpt! Aber hier auch noch verwendbar.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="en_GB">Replaced by audiodecoder.openmpt addon! However, but still usable here.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="ko_KR">audiodecoder.openmpt 애드온으로 대체되었습니다! 하지만 아직 여기에서도 사용할 수 있습니다.</lifecyclestate>
+    <lifecyclestate type="deprecated" lang="ru_RU">Заменен дополнением audiodecoder.openmpt! Но его ещё можно использовать здесь.</lifecyclestate>
+    <lifecyclestate type="deprecated" lang="zh_CN">替换为 audiodecoder.openmpt 插件！但是，在这里仍然可用。</lifecyclestate>
   </extension>
 </addon>
