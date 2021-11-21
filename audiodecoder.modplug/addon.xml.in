@@ -32,6 +32,7 @@
     <lifecyclestate type="deprecated" lang="da_DK">Erstattet af audiodecoder.openmpt addon! Dette addon er dog stadig brugbart.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="de_DE">Ersetzt durch das Addon audiodecoder.openmpt! Aber hier auch noch verwendbar.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="en_GB">Replaced by audiodecoder.openmpt addon! However, but still usable here.</lifecyclestate>
+    <lifecyclestate type="deprecated" lang="id_ID">Digantikan oleh audiodecoder.openmpt addon! Namun, tapi masih bisa digunakan di sini.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="ko_KR">audiodecoder.openmpt 애드온으로 대체되었습니다! 하지만 아직 여기에서도 사용할 수 있습니다.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="ru_RU">Заменен дополнением audiodecoder.openmpt! Но его ещё можно использовать здесь.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="zh_CN">替换为 audiodecoder.openmpt 插件！但是，在这里仍然可用。</lifecyclestate>
