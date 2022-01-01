@@ -21,7 +21,7 @@ extern "C"
 class ATTR_DLL_LOCAL CModplugCodec : public kodi::addon::CInstanceAudioDecoder
 {
 public:
-  CModplugCodec(KODI_HANDLE instance, const std::string& version);
+  CModplugCodec(const kodi::addon::IInstanceInfo& instance);
   ~CModplugCodec() override;
 
   bool Init(const std::string& filename,

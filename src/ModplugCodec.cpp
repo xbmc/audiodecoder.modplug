@@ -13,8 +13,8 @@
 
 #include <kodi/Filesystem.h>
 
-CModplugCodec::CModplugCodec(KODI_HANDLE instance, const std::string& version)
-  : CInstanceAudioDecoder(instance, version)
+CModplugCodec::CModplugCodec(const kodi::addon::IInstanceInfo& instance)
+  : CInstanceAudioDecoder(instance)
 {
 }
 
@@ -90,13 +90,10 @@ class ATTR_DLL_LOCAL CMyAddon : public kodi::addon::CAddonBase
 {
 public:
   CMyAddon() = default;
-  ADDON_STATUS CreateInstance(int instanceType,
-                              const std::string& instanceID,
-                              KODI_HANDLE instance,
-                              const std::string& version,
-                              KODI_HANDLE& addonInstance) override
+  ADDON_STATUS CreateInstance(const kodi::addon::IInstanceInfo& instance,
+                              KODI_ADDON_INSTANCE_HDL& hdl) override
   {
-    addonInstance = new CModplugCodec(instance, version);
+    hdl = new CModplugCodec(instance);
     return ADDON_STATUS_OK;
   }
   ~CMyAddon() override = default;
