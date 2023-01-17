@@ -23,6 +23,7 @@
     <summary lang="en_GB">Modplug Audio Decoder</summary>
     <summary lang="es_ES">Decodificador de Audio Modplug</summary>
     <summary lang="fr_FR">Décodeur Audio Modplug</summary>
+    <summary lang="hr_HR">Modplug zvučni dekôder</summary>
     <summary lang="it_IT">Modplug Audio Decoder</summary>
     <summary lang="ko_KR">Modplug 오디오 디코더</summary>
     <summary lang="pl_PL">Dekoder dźwięku Modplug</summary>
@@ -33,6 +34,7 @@
     <description lang="en_GB">Plays MOD files and few other formats.[CR][CR]It is recommended to use &quot;OpenMPT Audio Decoder&quot; addon instead of this one.</description>
     <description lang="es_ES">Reproduce archivos MOD y algunos otros formatos.[CR][CR]Se recomienda usar el addon &quot;Decodificador de Audio OpenMPT&quot; en lugar de este.</description>
     <description lang="fr_FR">Lit les fichiers MOD et quelques autres formats.[CR][CR]Il est recommandé d&apos;utiliser l&apos;addon &quot;OpenMPT Audio Decoder&quot; au lieu de celui-ci.</description>
+    <description lang="hr_HR">Reproducira MOD datoteke i još nekoliko formata.[CR][CR]Preporučljivo je korištenje &quot;OpenMPT zvučni dekôder&quot; dodatka umjesto ovog.</description>
     <description lang="it_IT">Riproduce file MOD e pochi altri formati.[CR][CR]Si consiglia di utilizzare il componente aggiuntivo &quot;OpenMPT Audio Decoder&quot; invece di questo.</description>
     <description lang="ko_KR">MOD 파일 및 기타 몇 가지 형식을 재생합니다.[CR][CR]이 애드온 대신 &quot;OpenMPT Audio Decoder&quot; 애드온을 사용하는 것이 좋습니다.</description>
     <description lang="pl_PL">Odtwarza pliki MOD i kilka innych formatów.[CR][CR]Zalecane jest używanie dodatku &quot;Dekoder dźwięku OpenMPT&quot; zamiast tego.</description>
@@ -45,6 +47,7 @@
     <lifecyclestate type="deprecated" lang="es_ES">¡Reemplazado por el addon audiodecoder.openmpt! De todos modos, puede seguir usándose.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="es_MX">¡Reemplazado por el complemento audiodecoder.openmpt! Sin embargo, aún puedes utilizarlo.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="fr_FR">Remplacé cependant par l&apos;addon audiodecoder.openmpt ! Mais toujours utilisable ici.</lifecyclestate>
+    <lifecyclestate type="deprecated" lang="hr_HR">Zamijenjeno je s audiodecoder.openmpt dodatkom! Ipak, je još ovdje iskoristiv.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="id_ID">Digantikan oleh audiodecoder.openmpt addon! Namun, tapi masih bisa digunakan di sini.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="it_IT">Sostituito dal componente aggiuntivo audiodecoder.openmpt! Comunque è ancora utilizzabile.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="ko_KR">audiodecoder.openmpt 애드온으로 대체되었습니다! 하지만 아직 여기에서도 사용할 수 있습니다.</lifecyclestate>
