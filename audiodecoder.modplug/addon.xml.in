@@ -108,6 +108,7 @@
     <summary lang="de_DE">Modplug Audio Decoder</summary>
     <summary lang="en_GB">Modplug Audio Decoder</summary>
     <summary lang="es_ES">Decodificador de Audio Modplug</summary>
+    <summary lang="et_EE">Modplug helidekooder</summary>
     <summary lang="eu_ES">Modplug Audio deskodetzailea</summary>
     <summary lang="fi_FI">Modplug-äänidekooderi</summary>
     <summary lang="fr_FR">Décodeur Audio Modplug</summary>
@@ -120,7 +121,7 @@
     <description lang="da_DK">Spiller MOD-filer og få andre formater.[CR][CR]Det anbefales at bruge &quot;OpenMPT lydafkoder&quot; addon i stedet for denne.</description>
     <description lang="de_DE">Spielt MOD-Dateien und einige andere Formate ab.[CR][CR]Es wird empfohlen, anstelle dieses Addons &quot;OpenMPT Audio Decoder&quot; zu verwenden.</description>
     <description lang="en_GB">Plays MOD files and few other formats.[CR][CR]It is recommended to use &quot;OpenMPT Audio Decoder&quot; addon instead of this one.</description>
-    <description lang="es_ES">Reproduce archivos MOD y algunos otros formatos.[CR][CR]Se recomienda usar el addon &quot;Decodificador de Audio OpenMPT&quot; en lugar de este.</description>
+    <description lang="es_ES">Reproduce archivos MOD y algunos otros formatos.[CR][CR]Se recomienda usar el complemento &quot;Decodificador de Audio OpenMPT&quot; en lugar de este.</description>
     <description lang="eu_ES">MOD fitxategiak eta beste formatu gutxi batzuk erreproduzitzen ditu.[CR][CR]&quot;OpenMPT Audio deskodetzailea&quot; erabiltzea gomendagarria da, honen ordez.</description>
     <description lang="fr_FR">Lit les fichiers MOD et quelques autres formats.[CR][CR]Il est recommandé d&apos;utiliser l&apos;addon &quot;OpenMPT Audio Decoder&quot; au lieu de celui-ci.</description>
     <description lang="hr_HR">Reproducira MOD datoteke i još nekoliko formata.[CR][CR]Preporučljivo je korištenje &quot;OpenMPT zvučni dekôder&quot; dodatka umjesto ovog.</description>
@@ -133,7 +134,7 @@
     <lifecyclestate type="deprecated" lang="da_DK">Erstattet af audiodecoder.openmpt addon! Dette addon er dog stadig brugbart.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="de_DE">Ersetzt durch das Addon audiodecoder.openmpt! Aber hier auch noch verwendbar.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="en_GB">Replaced by audiodecoder.openmpt addon! However, but still usable here.</lifecyclestate>
-    <lifecyclestate type="deprecated" lang="es_ES">¡Reemplazado por el addon audiodecoder.openmpt! De todos modos, puede seguir usándose.</lifecyclestate>
+    <lifecyclestate type="deprecated" lang="es_ES">¡Reemplazado por el complemento audiodecoder.openmpt! De todos modos, puede seguir usándose.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="es_MX">¡Reemplazado por el complemento audiodecoder.openmpt! Sin embargo, aún puedes utilizarlo.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="eu_ES">audiodecoder.openmpt gehigarriarengatik ordezkatua! Hala ere, oraindik erabil daiteke.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="fr_FR">Remplacé cependant par l&apos;addon audiodecoder.openmpt ! Mais toujours utilisable ici.</lifecyclestate>
