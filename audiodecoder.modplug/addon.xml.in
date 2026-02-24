@@ -103,6 +103,7 @@
     <assets>
       <icon>icon.png</icon>
     </assets>
+    <summary lang="bs_BA">Modplug audio dekoder</summary>
     <summary lang="ca_ES">Descodificador d&apos;àudio Modplug</summary>
     <summary lang="da_DK">Modplug lydafkoder</summary>
     <summary lang="de_DE">Modplug Audio Decoder</summary>
@@ -120,6 +121,7 @@
     <summary lang="ru_RU">Аудиодекодер Modplug</summary>
     <summary lang="sv_SE">Modplug-ljudavkodare</summary>
     <summary lang="zh_CN">Modplug 音频解码器</summary>
+    <description lang="bs_BA">Reproducira MOD datoteke i nekoliko drugih formata.[CR][CR]Preporučuje se korištenje dodatka &quot;OpenMPT Audio Decoder&quot; umjesto ovog.</description>
     <description lang="da_DK">Spiller MOD-filer og få andre formater.[CR][CR]Det anbefales at bruge &quot;OpenMPT lydafkoder&quot; addon i stedet for denne.</description>
     <description lang="de_DE">Spielt MOD-Dateien und einige andere Formate ab.[CR][CR]Es wird empfohlen, anstelle dieses Addons &quot;OpenMPT Audio Decoder&quot; zu verwenden.</description>
     <description lang="en_GB">Plays MOD files and few other formats.[CR][CR]It is recommended to use &quot;OpenMPT Audio Decoder&quot; addon instead of this one.</description>
@@ -134,6 +136,7 @@
     <description lang="ru_RU">Воспроизводит файлы MOD и некоторые другие форматы.[CR][CR]Вместо него рекомендуется использовать дополнение &quot;OpenMPT Audio Decoder&quot;.</description>
     <description lang="sv_SE">Spelar MOD-filer och få andra format.[CR][CR] Det rekommenderas att använda tillägget ”OpenMPT-ljudavkodare” istället för den här.</description>
     <description lang="zh_CN">播放 MOD 文件和少量其他格式。[CR][CR]建议使用“OpenMPT音频解码器”插件，而不是此插件。</description>
+    <lifecyclestate type="deprecated" lang="bs_BA">Zamijenjeno dodatkom audiodecoder.openmpt! Međutim, i dalje se može koristiti ovdje.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="ca_ES">Substituït pel complement audiodecoder.openmpt! Tanmateix, encara es pot utilitzar aquí.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="da_DK">Erstattet af audiodecoder.openmpt addon! Dette addon er dog stadig brugbart.</lifecyclestate>
     <lifecyclestate type="deprecated" lang="de_DE">Ersetzt durch das Addon audiodecoder.openmpt! Aber hier auch noch verwendbar.</lifecyclestate>
